@@ -1,0 +1,6 @@
+        , 
+09/05/22, Adaugare sistem propunere probleme<br />Redesign interfata<br />Inscriere in concurs<br />
+08/05/22, Adaugare problema <i>EstePrim</i><br />Implementare sandbox <code>seccomp(2)</code>
+07/05/22, Schimbare elemente interfata
+06/05/22, Doua probleme noi: <i>APB</i>; <i>VecSort</i>
+05/05/22, Prototip src/wrap.c

@@ -1,0 +1,107 @@
+body, html {
+  font-family: arial;
+  font-size: 13px;
+  background-color: rgb(247, 249, 252);
+}
+#grd {
+  display: inline-grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 1fr;
+}
+.button {
+  background-color: #4caf50;
+  border: 1px solid #45a741;
+  border-radius: 3px;
+  color: white;
+  padding: 2px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+.button:hover {
+  background-color: #45a741;
+}
+#button2 {
+  background-color: #007799;
+}
+#pagina {
+  height: 200px;
+  background-image: radial-gradient(#337ab7 20%, transparent 20%),
+                      radial-gradient(#337ab7 20%, transparent 20%);
+  background-color: #3068b4;
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+
+  background-attachment: fixed;
+
+  position: relative;
+}
+#pagina i {
+  font-size: 30px;
+  position: absolute;
+  bottom: 0px;
+}
+#cutie {
+  background-color: #ecf0f1;
+  margin: 10px solid;
+  padding: 5px 0px 0 0px;
+
+  border: 1px solid #cccccc;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  height: fit-content;
+  font-size: 14px;
+}
+#cutie #cerinta {
+  font-size: 13px;
+
+  border: 1px solid #cccccc;
+  color: black;
+  padding: 5px;
+  background-color: white;
+}
+ul {
+  font-family: serif;
+
+  z-index: 999;
+  position: fixed;
+  list-style-type: none;
+
+  background-image: linear-gradient(45deg, #343434 25%, #303030 25%, #303030 50%, #343434 50%, #343434 75%, #303030 75%, #303030 100%);
+  background-size: 8.49px 8.49px;
+  color: #dddddd;
+  font-size: 15px;
+  width: 100%;
+
+  padding: 0px;
+  margin: 0px;
+  top: 0px;
+
+  font-size: 15px;
+}
+li {
+  float: left;
+}
+li a {
+  color: #eeeeee;
+  text-decoration: none;
+  padding: 15px 15px;
+  display: block;
+}
+li a:hover {
+  background-color: #111;
+}
+.curent {
+  background-color: #427b58;
+}
+pre, code {
+  color: #c7254e;
+  background-color: #f9f2f4;
+  width: fit-content;
+  margin: 0px;
+  border-radius: 2px;
+}
