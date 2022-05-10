@@ -72,6 +72,12 @@
         <form method="post">
           <input type="text" name="util" placeholder=<?php echo '"'.$_COOKIE["nume"].'"'; ?>>
           <button class="button" id="button2" type="submit">OK</button>
+          <?php
+            #TODO: repara
+            if (isset($_POST["util"])) {
+              echo "<meta http-equiv=\"refresh\">";
+            }
+          ?>
         </form>
       </span>
     </ul>
@@ -81,7 +87,7 @@
     <div class="wrap"><iframe src=
       <?php
         if (isset($_POST["util"])) {
-         setcookie("nume", $_POST["util"], 0, "/");
+          setcookie("nume", $_POST["util"], 0, "/");
         }
         switch($_GET['q']) {
         case 'pb':

@@ -22,6 +22,9 @@
       table {
         border-collapse: collapse;
       }
+      hr {
+        width: 100%;
+      }
     </style>
   </head>
   <body>
@@ -45,10 +48,17 @@
           natsort($solutii);
           #Mai intai primele solutii...
           $solutii = array_reverse($solutii);
+
+          $oo = count($solutii) - 5;
+          $i = 0;
+
           foreach($solutii as $solutie) {
             if (!is_dir('sol/'.$solutie) && $solutie != 'num.txt') {
+              ++$i;
               $linie = file('sol/'.$solutie)[0];
               echo "<a href=\"sol/$solutie\">".$solutie."</a><b> $linie</b>".'<br />';
+              if ($i < $oo)
+                echo '<hr />';
             }
           }
           #Lista tuturor solutiilor
@@ -79,13 +89,16 @@
       $COMPILATOR = $_SERVER['cxx'];
       $EXTENSIE = '.cpp';
 
+      #Alegem limbajul care va fi utilizat.
       if (isset($_POST['lang'])) {
         $num = file_get_contents('sol/num.txt');
         ++$num;
         file_put_contents('sol/num.txt', @$num);
 
+        #Copie $num pt a fi folosit cu extensie.
         $fn = $num;
 
+        #Limbajele/compilatoarele sunt definite in CONFIG.PHP !!
         switch($_POST['lang']) {
         case 'c':
           $COMPILATOR = $_SERVER['cc'].'-o '.$fn;
@@ -133,20 +146,20 @@
                         htmlspecialchars($corect).
                      '</td>
                       <td>';
-              #Executam dintr-un pipe.
               $timpInceput = floor(microtime(true) * 100);
+              #Executam dintr-un pipe, in "wrap".
               $rez = trim(shell_exec('echo "'.$continut.'"|'.$root.'/wrap '.$fn));
               $timpFinal = floor(microtime(true) * 100) - $timpInceput;
               echo htmlspecialchars($rez).
                   '</td>
                    <td>';
               ++$totale;
-              if (!strcmp($rez, $corect) && $timpFinal <= 105) {
+              if (!strcmp($rez, $corect) && $timpFinal <= 107) {
                 ++$corecte;
                 echo '✅';
               } else echo '❌';
               echo '~'.$timpFinal.'ms</td></tr>';
-              #Afisam orderou de evaluare
+              #Afisam borderoul de evaluare
             }
           }
         }
