@@ -122,7 +122,6 @@
               $corect   = trim(file_get_contents('corect/'.$io));
 
               #Stergem spatiile albe.
-
               preg_replace('/[0-9][A-z] .', '', $corect);
 
               echo '<tr>
@@ -134,16 +133,18 @@
                      '</td>
                       <td>';
               #Executam dintr-un pipe.
+              $timpInceput = floor(microtime(true) * 100);
               $rez = trim(shell_exec('echo "'.$continut.'"|'.$root.'/wrap '.$fn));
+              $timpFinal = floor(microtime(true) * 100) - $timpInceput;
               echo htmlspecialchars($rez).
                   '</td>
                    <td>';
               ++$totale;
-              if (!strcmp($rez, $corect)) {
+              if (!strcmp($rez, $corect) && $timpFinal <= 105) {
                 ++$corecte;
                 echo '✅';
               } else echo '❌';
-              echo '</td></tr>';
+              echo '~'.$timpFinal.'ms</td></tr>';
               #Afisam orderou de evaluare
             }
           }

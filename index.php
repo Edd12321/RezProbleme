@@ -6,6 +6,8 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+    <title>RezProbleme</title>
+
     <link rel="stylesheet" href="/style.css">
     <style>
       html, body {
@@ -25,6 +27,7 @@
       }
       iframe {
         border: 0px;
+        box-shadow: 2px 2px 4px #cccccc;
       }
     </style>
   </head>

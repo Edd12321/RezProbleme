@@ -23,6 +23,7 @@ main(int argc, char *argv[])
   int blocare[] = {
                 /** fisiere baza **/
                 SCMP_SYS(unlink), SCMP_SYS(unlinkat), SCMP_SYS(open),
+                SCMP_SYS(fstat), SCMP_SYS(stat),
 
                 /** blocare retea **/
                 SCMP_SYS(socket), SCMP_SYS(socketpair), SCMP_SYS(getsockopt), SCMP_SYS(getsockname), SCMP_SYS(getpeername),
