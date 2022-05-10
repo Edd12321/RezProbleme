@@ -8,6 +8,7 @@
 
   $_SERVER['cc'] = 'gcc';
   $_SERVER['cxx'] = 'g++';
+  $_SERVER['d'] = 'dmd';
 
   if (!isset($nume))
     $nume = "Anonim";
