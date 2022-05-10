@@ -19,7 +19,7 @@ body, html {
   display: inline-block;
   margin: 4px 2px;
   cursor: pointer;
-  transition-duration: 0.4s;
+  transition-duration: 0.5s;
 }
 .button:hover {
   background-color: #45a741;
@@ -55,6 +55,8 @@ body, html {
 
   height: fit-content;
   font-size: 14px;
+
+  box-shadow: 2px 2px 2px #cccccc;
 }
 #cutie #cerinta {
   font-size: 13px;
@@ -63,6 +65,18 @@ body, html {
   color: black;
   padding: 5px;
   background-color: white;
+}
+textarea, input[type=text] {
+  border: none;
+  border-bottom: 2px solid #999999;
+  background-color: #fdfdfd;
+}
+textarea:focus, input[type=text]:focus {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #005577;
+  background-color: #ffffff;
+  transition: ease-in-out, background-color .20s ease-in-out;
 }
 ul {
   font-family: serif;
