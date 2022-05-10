@@ -11,7 +11,7 @@ Platforma interactiva pentru probleme de informatica.
 # Configuratie
 `gcc src/wrap.c -lseccomp -o wrap`
 
-Pasul acesta este necesar deoarece binara finala _wrap_ va avea rolul unui filtru pentru codul trimis de catre utilizatori. Asa, ne asiguram ca rezolvitorii sa nu poate sa strice serverul pe care ruleaza site-ul apeland alte syscall-uri in afara de `read`, `write`, `exit` si `rt_sigreturn`.
+Mai intai, wrap.c face un whitelist cu toate syscall-urile acceptabile, apoi nu lasa anumite syscall-uri din a fi executate (ex stat, unlink)
 
 `style.css` contine design-ul grafic al paginii,
 `index.php` contine pagina in sine (bara, etc.),
