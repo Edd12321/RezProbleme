@@ -33,6 +33,7 @@
       <li>
         <a href="/index.php" 
           <?php
+            #Da, este butonul selectat.
             if (!isset($_GET['q']))
               echo 'class="curent"';
           ?>
@@ -43,6 +44,7 @@
       <li>
         <a href="/index.php?q=pb"
           <?php
+            #Idem
             if ($_GET['q'] == 'pb')
               echo 'class="curent"';
           ?>
@@ -97,6 +99,8 @@
     ></iframe>
     <script>
       let frame = document.querySelector("#Ifr");
+
+      // Facem iframe sa acopere tot spatiul disponibil.
 
       frame.addEventListener('load', function() {
         frame.style.height = frame.contentDocument.body.scrollHeight + 300 + 'px'

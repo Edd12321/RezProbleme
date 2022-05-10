@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="/style.css">
     <style>
       textarea {
+        /* Setand si min si max, "restrangem" dimensiunea
+         * la FIX 600px si 300px, respectiv. */
+
         max-width: 600px;
         min-width: 600px;
 
@@ -70,7 +73,8 @@
           </div>
           <div class="td" id="pt2">
             <div id="grd">
-            <?php
+              <?php
+              #Generam primele 10 cutii de text.
               for ($i = 1; $i <= 10; ++$i) {
                 echo "<div id=\"xyz\"><code>#$i";
                 if ($i < 10)
@@ -94,6 +98,7 @@
           <div class="td" id="pt2">
             <div id="grd">
             <?php
+              #Generam alte 10 cutii de text.
               for ($i = 1; $i <= 10; ++$i) {
                 echo "<div id=\"xyz\"><code>#$i";
                 if ($i < 10)
@@ -119,6 +124,7 @@
           mkdir($unde);
           mkdir("$unde/sol");
 
+          #Formatam pagina cerintei.
           $cer = "<a style=\"color:#cccccc;\">Problema a fost propusa de catre: <i>".$_COOKIE["nume"]."</i>.<br /></a>".
                   htmlspecialchars($_POST["cerinta"]).
                  '<br /><br />

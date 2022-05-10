@@ -47,6 +47,7 @@
               echo "<a href=\"sol/$solutie\">".$solutie."</a><b> $linie</b>".'<br />';
             }
           }
+          #Lista tuturor solutiilor
         ?>
       </div>
     </div>
@@ -117,9 +118,10 @@
         if ($date) {
           foreach ($date as $io) {
             if (!is_dir($io)) {
-              #Ignoram whitespace si scapam de un posibil cross-site scripting
               $continut = file_get_contents('date/'.$io);
               $corect   = trim(file_get_contents('corect/'.$io));
+
+              #Stergem spatiile albe.
 
               preg_replace('/[0-9][A-z] .', '', $corect);
 
@@ -142,6 +144,7 @@
                 echo '✅';
               } else echo '❌';
               echo '</td></tr>';
+              #Afisam orderou de evaluare
             }
           }
         }
