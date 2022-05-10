@@ -41,6 +41,10 @@
       <div id="cerinta">
         <?php
           $solutii = scandir("sol");
+          #Ordine numerica, nu lexicografica.
+          natsort($solutii);
+          #Mai intai primele solutii...
+          $solutii = array_reverse($solutii);
           foreach($solutii as $solutie) {
             if (!is_dir('sol/'.$solutie) && $solutie != 'num.txt') {
               $linie = file('sol/'.$solutie)[0];
@@ -71,20 +75,17 @@
                            min-width:100px">
     <b>I/O Standard</b><div id="cerinta"><table border="1px solid">
     <?php
-
-      #Nu vrem un singur ./a.out, pot fi mai multi utilizatori
-      #care incarca in acelasi timp !!!
-      $num = file_get_contents('sol/num.txt');
-      ++$num;
-      file_put_contents('sol/num.txt', @$num);
-
-      $fn = $num;
-
-      #Fallback C++  
+      #Fallback C++
       $COMPILATOR = $_SERVER['cxx'];
       $EXTENSIE = '.cpp';
 
       if (isset($_POST['lang'])) {
+        $num = file_get_contents('sol/num.txt');
+        ++$num;
+        file_put_contents('sol/num.txt', @$num);
+
+        $fn = $num;
+
         switch($_POST['lang']) {
         case 'c':
           $COMPILATOR = $_SERVER['cc'].'-o '.$fn;
