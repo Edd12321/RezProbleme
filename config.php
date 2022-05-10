@@ -10,6 +10,7 @@
   $_SERVER['cxx'] = 'g++';
   $_SERVER['dc'] = 'dmd';
 
-  if (!isset($nume))
-    $nume = "Anonim";
+  if (!isset($_COOKIE["nume"])) {
+    setcookie("nume", "Anonim", 0, "/");
+  }  
 ?>

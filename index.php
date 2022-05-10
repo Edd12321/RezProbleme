@@ -29,46 +29,55 @@
     </style>
   </head>
   <body>
-    <div id="bar">
-      &nbsp;epbs&nbsp; <!--Titlul-->
-      <ul>
+    <ul>
+      <li>
+        <a href="/index.php" 
+          <?php
+            if (!isset($_GET['q']))
+              echo 'class="curent"';
+          ?>
+        >
+          Acasa
+        </a>
+      </li>
+      <li>
+        <a href="/index.php?q=pb"
+          <?php
+            if ($_GET['q'] == 'pb')
+              echo 'class="curent"';
+          ?>
+        >
+          Probleme
+        </a>
+      </li>
+      <li>
+        <a href="/index.php?q=cr"
+          <?php
+            if ($_GET['q'] == 'cr')
+              echo 'class="curent"';     
+          ?>
+        >
+          Compune
+        </a>
+      </li>
+      <span style="float:right;">
         <li>
-          <a href="/index.php" 
-            <?php
-              if (!isset($_GET['q']))
-                echo 'class="curent"';
-            ?>
-          >
-            Acasa
-          </a>
+          <i>Ma cheama... </i>
         </li>
-        <li>
-          <a href="/index.php?q=pb"
-            <?php
-              if ($_GET['q'] == 'pb')
-                echo 'class="curent"';
-            ?>
-          >
-            Probleme
-          </a>
-        </li>
-        <li>
-          <a href="/index.php?q=cr"
-            <?php
-              if ($_GET['q'] == 'cr')
-                echo 'class="curent"';     
-            ?>
-          >
-            Compune
-          </a>
-        </li>
-      </ul>
-    </div>
+        <form method="post">
+          <input type="text" name="util" placeholder=<?php echo '"'.$_COOKIE["nume"].'"'; ?>>
+          <button class="button" id="button2" type="submit">OK</button>
+        </form>
+      </span>
+    </ul>
     <div id="pagina">
       <i>RezProbleme</i>
     </div>
     <div class="wrap"><iframe src=
       <?php
+        if (isset($_POST["util"])) {
+         setcookie("nume", $_POST["util"], 0, "/");
+        }
         switch($_GET['q']) {
         case 'pb':
           echo '"/probleme.php"';

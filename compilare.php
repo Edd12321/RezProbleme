@@ -149,7 +149,7 @@
         #Stergem binarele rezultate dupa compilare.
         unlink($fn);
         $var = file_get_contents($num.$EXTENSIE);
-        $var = '// '.$corecte.'/'.$totale.', '.$nume.PHP_EOL.$var;
+        $var = '// '.$corecte.'/'.$totale.', '.$_COOKIE["nume"].PHP_EOL.$var;
         file_put_contents($num.$EXTENSIE, $var);
 
         #Ne intoarcem de unde am plecat.
