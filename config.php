@@ -12,10 +12,12 @@
   
   $root = realpath(__DIR__);
 
+  #Compilatoare
   $_SERVER['cc'] = 'gcc';
   $_SERVER['cxx'] = 'g++';
   $_SERVER['dc'] = 'dmd';
 
+  #Username temporar
   if (!isset($_COOKIE["nume"])) {
     setcookie("nume", "Anonim", 0, "/");
   }  

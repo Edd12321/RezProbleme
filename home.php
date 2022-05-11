@@ -17,6 +17,7 @@
     <h2>Noutati</h2><table>
     <?php
       $k2 = 0;
+      #Afisare "blog"
       $f = fopen("bl.csv", "r");
       while (($linie = fgetcsv($f)) !== false) {
         echo '<tr>';
@@ -25,6 +26,7 @@
           if ($k2)
             echo '<div id="postare">' . $cel . '</div>';
           else if ($k) {
+            #Reprezentare grafica a datei
             echo '<div id="cal">' . $cel[0] . $cel[1] . ', ' .
                                     $cel[3] . $cel[4] . '<h2 style="margin:0px;"><center>
                                 ' . $cel[6] . $cel[7] . 

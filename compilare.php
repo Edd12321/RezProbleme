@@ -49,6 +49,7 @@
           #Mai intai primele solutii...
           $solutii = array_reverse($solutii);
 
+          #Scadem fisierele/folderele: ".", "..", "num.txt", "date" si "corecte".
           $oo = count($solutii) - 5;
           $i = 0;
 
@@ -57,8 +58,11 @@
               ++$i;
               $linie = file('sol/'.$solutie)[0];
               echo "<a href=\"sol/$solutie\">".$solutie."</a><b> $linie</b>".'<br />';
+
+              #Am ajuns la ultima solutie?
               if ($i < $oo)
                 echo '<hr />';
+              #Nu mai afisam <hr>!
             }
           }
           #Lista tuturor solutiilor
@@ -126,6 +130,7 @@
 
         $date = scandir("date");
 
+        #Punctajul este un string definit ca "$corecte/$totale".
         $corecte = 0;
         $totale = 0;
 
@@ -147,7 +152,7 @@
                      '</td>
                       <td>';
               $timpInceput = floor(microtime(true) * 100);
-              #Executam dintr-un pipe, in "wrap".
+              #Executam dintr-un pipe, in "wrap" (pentru a evita executarea de cod arbitrar).
               $rez = trim(shell_exec('echo "'.$continut.'"|'.$root.'/wrap '.$fn));
               $timpFinal = floor(microtime(true) * 100) - $timpInceput;
               echo htmlspecialchars($rez).
@@ -159,7 +164,7 @@
                 echo '✅';
               } else echo '❌';
               echo '~'.$timpFinal.'ms</td></tr>';
-              #Afisam borderoul de evaluare
+              #Afisam borderoul de evaluare.
             }
           }
         }

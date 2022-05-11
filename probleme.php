@@ -14,10 +14,12 @@
   </head>
   <body>
     <h2>Lista de probleme</h2>
-    <?php
+  <?php
+      #Problemele sunt stocate in folderul "comp".
       $pb = scandir('comp');
       foreach($pb as $problema) {
         if ($problema[0] != '.') {
+          #Afisam "fereastra" si cerinta inauntrul ei.
           echo '<div id="cutie">
                 <b>' .
                   basename($problema) .

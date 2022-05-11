@@ -3,7 +3,7 @@
 #include <seccomp.h>
 #include <sys/prctl.h>
 
-/** Scop: execvp(3), flaf **/
+/** Scop: execvp(3), flag-uri/optiuni **/
 #include <unistd.h>
 #include <fcntl.h>
 
@@ -39,15 +39,17 @@ main(int argc, char *argv[])
     seccomp_rule_add(filtru, SCMP_ACT_KILL, blocare[i], false);
   }
 
-  /* open(2) w/rw */
+  /* openat w/rw */
   seccomp_rule_add(filtru, SCMP_ACT_KILL, SCMP_SYS(openat), true,
       SCMP_CMP(2, SCMP_CMP_MASKED_EQ,O_WRONLY,O_WRONLY));
 
   seccomp_rule_add(filtru, SCMP_ACT_KILL, SCMP_SYS(openat), true, 
       SCMP_CMP(2,SCMP_CMP_MASKED_EQ,O_RDWR,O_RDWR));
-  
+ 
+  /* limita de timp */
   alarm(3);
 
+  /* executare solutie */
   seccomp_load(filtru);
   execvp(argv[1], &argv[1]);
   seccomp_release(filtru);
