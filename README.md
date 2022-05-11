@@ -7,6 +7,7 @@ Platforma interactiva pentru probleme de informatica.
  - Compilatorul DMD;
  - Un browser cu suport Javascript;
  - Nucleul Linux, pentru seccomp(2);
+ - POSIX sh, pentru compilare.php;
 
 # Configuratie
 `gcc src/wrap.c -lseccomp -o wrap`
