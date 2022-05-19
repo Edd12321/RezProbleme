@@ -105,7 +105,7 @@
         #Limbajele/compilatoarele sunt definite in CONFIG.PHP !!
         switch($_POST['lang']) {
         case 'c':
-          $COMPILATOR = $_SERVER['cc'].'-o '.$fn;
+          $COMPILATOR = $_SERVER['cc'].' -o '.$fn;
           $EXTENSIE = '.c';
           break;
         case 'cpp':
