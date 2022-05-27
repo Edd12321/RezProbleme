@@ -29,6 +29,18 @@
         border: 0px;
         box-shadow: 2px 2px 4px #cccccc;
       }
+
+      #pagina {
+        background: url('<?php $v = array_slice(scandir(__DIR__."/res"), 2); echo "/res/".$v[array_rand($v)];?>');
+        height: 300px;
+        background-attachment: fixed;
+        position: relative;
+      }
+      #pagina i {
+        font-size: 30px;
+        position: absolute;
+        bottom: 0px;
+      }
     </style>
   </head>
   <body>
@@ -66,19 +78,22 @@
         </a>
       </li>
       <span style="float:right;">
-        <li>
-          <i>Ma cheama... </i>
-        </li>
-        <form method="post">
-          <input type="text" name="util" placeholder=<?php echo '"'.$_COOKIE["nume"].'"'; ?>>
-          <button class="button" id="button2" type="submit">OK</button>
+        <li style="background-color:#222;">
+          <a href="/index.php?q=au"
+            <?php
+              if ($_GET['q'] == 'au')
+                echo 'class="curent"';
+            ?>
+          >
           <?php
-            #TODO: repara
-            if (isset($_POST["util"])) {
-              echo "<meta http-equiv=\"refresh\">";
+            if ($_SESSION["nume"] == "Anonim") {
+              echo 'Autentificare';
+            } else {
+              echo $_SESSION["nume"];
             }
           ?>
-        </form>
+        </a>
+        </li>
       </span>
     </ul>
     <div id="pagina">
@@ -95,6 +110,9 @@
           break;
         case 'cr':
           echo '"/inv.php"';
+          break;
+        case 'au':
+          echo '"/auth.php"';
           break;
         default:
           echo '"/home.php"';

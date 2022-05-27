@@ -79,6 +79,7 @@
           <option value="cpp">C++</option>
           <option value="c">C</option>
           <option value="d">D</option>
+          <option value="py">Python</option>
         </select>
         <br />
         <button type="submit" class="button">Trimite!</input>
@@ -103,6 +104,10 @@
         $fn = $num;
 
         #Limbajele/compilatoarele sunt definite in CONFIG.PHP !!
+
+        $INTERP = "";
+        $COMM = "//";
+
         switch($_POST['lang']) {
         case 'c':
           $COMPILATOR = $_SERVER['cc'].' -o '.$fn;
@@ -116,6 +121,10 @@
           $COMPILATOR = $_SERVER['dc'].' -of='.$fn;
           $EXTENSIE = '.d';
           break;
+        case 'py':
+          $INTERP = "#!/usr/bin/python".PHP_EOL;
+          $COMM = "#";
+          $EXTENSIE = '.py';
         }
 
         $fn = './' . $fn;
@@ -125,8 +134,16 @@
         chdir('sol');
 
         #Compilam pe server... 
-        file_put_contents($num.$EXTENSIE, $_POST['solutie']);
-        shell_exec($COMPILATOR.' '.$num.$EXTENSIE);
+        if ($INTERP != "") {
+          $fn .= $EXTENSIE;
+          file_put_contents($fn, $INTERP.$_POST['solutie']);
+
+          #facem executabil
+          chmod($fn, 0777);
+        } else {
+          file_put_contents($num.$EXTENSIE, $_POST['solutie']);
+          shell_exec($COMPILATOR.' '.$num.$EXTENSIE);
+        }
 
         $date = scandir("date");
 
@@ -142,7 +159,6 @@
 
               #Stergem spatiile albe.
               preg_replace('/[0-9][A-z] .', '', $corect);
-
               echo '<tr>
                       <td>'.
                         htmlspecialchars($continut).
@@ -169,10 +185,12 @@
           }
         }
 
-        #Stergem binarele rezultate dupa compilare.
-        unlink($fn);
+        if ($INTERP == "") {
+          #Stergem binarele rezultate dupa compilare.
+          unlink($fn);
+        }
         $var = file_get_contents($num.$EXTENSIE);
-        $var = '// '.$corecte.'/'.$totale.', '.$_COOKIE["nume"].PHP_EOL.$var;
+        $var = $COMM.' '.$corecte.'/'.$totale.', '.$_SESSION["nume"].PHP_EOL.$var;
         file_put_contents($num.$EXTENSIE, $var);
 
         #Ne intoarcem de unde am plecat.

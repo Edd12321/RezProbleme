@@ -26,23 +26,7 @@ body, html {
 }
 #button2 {
   background-color: #007799;
-}
-#pagina {
-  height: 200px;
-  background-image: radial-gradient(#337ab7 20%, transparent 20%),
-                      radial-gradient(#337ab7 20%, transparent 20%);
-  background-color: #3068b4;
-  background-size: 30px 30px;
-  background-position: 0 0, 15px 15px;
-
-  background-attachment: fixed;
-
-  position: relative;
-}
-#pagina i {
-  font-size: 30px;
-  position: absolute;
-  bottom: 0px;
+  border: 1px solid blue;
 }
 #cutie {
   background-color: #ecf0f1;
@@ -54,6 +38,7 @@ body, html {
   border-top-right-radius: 5px;
 
   height: fit-content;
+
   font-size: 14px;
 
   box-shadow: 2px 2px 2px #cccccc;
@@ -97,6 +82,26 @@ ul {
 
   font-size: 15px;
 }
+
+@media only screen and (max-device-width: 800px) {
+  ul {
+    height: 72.5px;
+    font-size: 36px;
+
+    font-family: Tahoma,sans-serif;
+    font-weight: 400;
+  }
+  iframe {
+    width: 100%;
+  }
+  body {
+    padding: 0px;
+  }
+  button, form, pre {
+    font-size: 23px;
+  }
+}
+
 li {
   float: left;
 }

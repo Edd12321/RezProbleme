@@ -16,9 +16,10 @@
   $_SERVER['cc'] = 'gcc';
   $_SERVER['cxx'] = 'g++';
   $_SERVER['dc'] = 'dmd';
+  $_SERVER['py'] = 'python';
 
   #Username temporar
-  if (!isset($_COOKIE["nume"])) {
-    setcookie("nume", "Anonim", 0, "/");
+  if (!isset($_SESSION["nume"])) {
+    $_SESSION["nume"] = "Anonim";
   }  
 ?>

@@ -1,11 +1,11 @@
-// 3/3, edward_9x
+// 10/10, Anonim
 #include <bits/stdc++.h>
 #pragma GCC optimize("Ofast")
 
 int
 main(void)
 {
-  int a, b;
-  std::cin >> a >> b;
-  std::cout << a + b;
+  int x, y;
+  std::cin >> x >> y;
+  std::cout << x - y;
 }

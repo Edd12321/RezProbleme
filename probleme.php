@@ -7,6 +7,11 @@
         height: fit-content;
         width: fit-content;
       }
+      @media only screen and (max-device-width:700px) {
+        #cutie {
+          width: 100%;
+        }
+      }
       input {
         left: 0px;
       }
