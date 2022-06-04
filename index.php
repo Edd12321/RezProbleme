@@ -8,7 +8,7 @@
   <head>
     <title>RezProbleme</title>
 
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href=<?php echo "\"$root2/style.css\""; ?>>
     <style>
       html, body {
         background-color: #eeeeee;
@@ -31,7 +31,7 @@
       }
 
       #pagina {
-        background: url('<?php $v = array_slice(scandir(__DIR__."/res"), 2); echo "/res/".$v[array_rand($v)];?>');
+        background: url('<?php $v = array_slice(scandir(__DIR__."/res"), 2); echo "res/".$v[array_rand($v)];?>');
         height: 300px;
         background-attachment: fixed;
         position: relative;
@@ -46,7 +46,7 @@
   <body>
     <ul>
       <li>
-        <a href="/index.php" 
+      <a href=<?php echo "\"$root2/index.php\"";?> 
           <?php
             #Da, este butonul selectat.
             if (!isset($_GET['q']))
@@ -57,7 +57,7 @@
         </a>
       </li>
       <li>
-        <a href="/index.php?q=pb"
+      <a href=<?php echo "\"$root2/index.php?q=pb\"";?>
           <?php
             #Idem
             if ($_GET['q'] == 'pb')
@@ -68,7 +68,7 @@
         </a>
       </li>
       <li>
-        <a href="/index.php?q=cr"
+        <a href=<?php echo "\"$root2/index.php?q=cr\"";?>
           <?php
             if ($_GET['q'] == 'cr')
               echo 'class="curent"';     
@@ -79,7 +79,7 @@
       </li>
       <span style="float:right;">
         <li style="background-color:#222;">
-          <a href="/index.php?q=au"
+        <a href=<?php echo "\"$root2/index.php?q=au\"";?>
             <?php
               if ($_GET['q'] == 'au')
                 echo 'class="curent"';
@@ -106,16 +106,16 @@
         }
         switch($_GET['q']) {
         case 'pb':
-          echo '"/probleme.php"';
+          echo "\"$root2/probleme.php\"";
           break;
         case 'cr':
-          echo '"/inv.php"';
+          echo "\"$root2/inv.php\"";
           break;
         case 'au':
-          echo '"/auth.php"';
+          echo "\"$root2/auth.php\"";
           break;
         default:
-          echo '"/home.php"';
+          echo "\"$root2/home.php\"";
           break;
         }
       ?>

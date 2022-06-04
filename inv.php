@@ -6,7 +6,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
     <style>
       textarea {
         /* Setand si min si max, "restrangem" dimensiunea

@@ -12,6 +12,9 @@
   
   $root = realpath(__DIR__);
 
+  #SCHIMBA ASTA DACA INDEX.PHP NU SE AFLA IN FOLDERUL RADACINA !!
+  $root2 = "";
+
   #Compilatoare
   $_SERVER['cc'] = 'gcc';
   $_SERVER['cxx'] = 'g++';

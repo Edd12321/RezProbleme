@@ -6,7 +6,7 @@
 ?>
 <html>
   <head>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href=<?php echo "$root2/style.css";?>>
     <style>
       select, textarea {
         width: 100%;

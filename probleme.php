@@ -1,7 +1,12 @@
+<?php
+  session_start();
+  include 'config.php';
+?>
+
 <!DOCTYPE HTML>
 <html>
   <head>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
     <style>
       #cutie {
         height: fit-content;

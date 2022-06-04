@@ -1,10 +1,10 @@
 <?php
   session_start();
-  include __DIR__.'/config.php';
+  include 'config.php';
 ?>
 <html>
   <head>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div id="cutie" style="padding:3px;">
