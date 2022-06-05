@@ -51,6 +51,15 @@ body, html {
   padding: 5px;
   background-color: white;
 }
+#cutie {
+  width: fit-content;
+  height: fit-content;
+}
+@media only screen and (max-device-width: 800px) {
+  #cutie {
+    width: 100%;
+  }
+}
 textarea, input[type=text] {
   border: none;
   border-bottom: 2px solid #999999;
@@ -81,25 +90,6 @@ ul {
   top: 0px;
 
   font-size: 15px;
-}
-
-@media only screen and (max-device-width: 800px) {
-  ul {
-    height: 72.5px;
-    font-size: 36px;
-
-    font-family: Tahoma,sans-serif;
-    font-weight: 400;
-  }
-  iframe {
-    width: 100%;
-  }
-  body {
-    padding: 0px;
-  }
-  button, form, pre {
-    font-size: 23px;
-  }
 }
 
 li {

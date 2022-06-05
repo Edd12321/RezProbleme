@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  include 'config.php';
+?>
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -11,9 +15,7 @@
     </style>
   </head>
   <body>
-    <center><h1>O comunitate dedicata rezolvitorilor de probleme.
-            <br />
-            De informatica.</h1></center>
+  <h1><center>Bine ati venit, <i><?php echo $_SESSION["nume"]; ?></i>!</center></h1>
     <h2>Noutati</h2><table>
     <?php
       $k2 = 0;

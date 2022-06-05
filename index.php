@@ -7,7 +7,6 @@
 <html>
   <head>
     <title>RezProbleme</title>
-
     <link rel="stylesheet" href=<?php echo "\"$root2/style.css\""; ?>>
     <style>
       html, body {
@@ -40,8 +39,15 @@
         font-size: 30px;
         position: absolute;
         bottom: 0px;
+        font-weight: 200;
+      }
+      @media only screen and (max-device-width: 800px) {
+        .wrap {
+          width: 100%;
+        }
       }
     </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0.80, minimum-scale=0.80, user-scalable=no, user-scrollable=no, minimal-ui">
   </head>
   <body>
     <ul>

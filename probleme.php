@@ -7,20 +7,6 @@
 <html>
   <head>
     <link rel="stylesheet" href="style.css">
-    <style>
-      #cutie {
-        height: fit-content;
-        width: fit-content;
-      }
-      @media only screen and (max-device-width:700px) {
-        #cutie {
-          width: 100%;
-        }
-      }
-      input {
-        left: 0px;
-      }
-    </style>
   </head>
   <body>
     <h2>Lista de probleme</h2>

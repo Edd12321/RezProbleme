@@ -18,9 +18,13 @@
         max-height: 300px;
         min-height: 300px;
       }
+      .c2 {
+        padding: 3px;
+        width: fit-content;
+      }
     </style>
   </head>
-  <body><div id="cutie" style="width:fit-content;padding:3px;">
+  <body><div id="cutie" class="c2">
     <h2>Creeaza o problema</h2>
     <div class="table">
       <form method="post">
