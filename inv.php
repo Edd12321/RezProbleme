@@ -129,7 +129,7 @@
           mkdir("$unde/sol");
 
           #Formatam pagina cerintei.
-          $cer = "<a style=\"color:#cccccc;\">Problema a fost propusa de catre: <i>".$_COOKIE["nume"]."</i>.<br /></a>".
+          $cer = "<a style=\"color:#cccccc;\">Problema a fost propusa de catre: <i>".$_SESSION["nume"]."</i>.<br /></a>".
                   htmlspecialchars($_POST["cerinta"]).
                  '<br /><br />
                   <b>Exemple:</b>
