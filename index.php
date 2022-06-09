@@ -8,6 +8,7 @@
   <head>
     <title>RezProbleme</title>
     <link rel="stylesheet" href=<?php echo "\"$root2/style.css\""; ?>>
+    <link rel="icon" type="image/x-icon" href="<?php echo $root2; ?>/favicon.ico">
     <style>
       html, body {
         background-color: #eeeeee;

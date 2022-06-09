@@ -10,14 +10,11 @@
     <style>
       select, textarea {
         width: 100%;
+        resize: vertical;
 
 -webkit-box-sizing: border-box;
    -moz-box-sizing: border-box;
         box-sizing: border-box;
-      }
-      textarea {
-        height: 300px;
-        resize: vertical;
       }
       table {
         border-collapse: collapse;
@@ -25,12 +22,19 @@
       hr {
         width: 100%;
       }
+      #cutie {
+        width: 100%;
+      }
+      textarea {
+        height: 300px;
+      }
     </style>
   </head>
   <body>
-    <h2>
-      Problema <?php echo $bpwd; ?>
-    </h2>
+    <?php
+      $title = 'Problema '.$bpwd;
+      echo "<h2>$title</h2><title>$title - RezProbleme</title>";
+    ?>
     <!--Cutia de text in care se trimite codul-->
     <div id="cutie">
       <b>Cerinta</b>
