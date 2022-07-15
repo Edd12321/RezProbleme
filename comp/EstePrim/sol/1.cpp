@@ -1,9 +1,9 @@
-// 5/5, ed
+// 5/5, edward_9x
 #include <bits/stdc++.h>
-#pragma GCC optimize("Ofast")
+using namespace std;
 
-static inline bool
-estePrim(int x)
+bool
+este_prim(int x)
 {
   if (x < 2)
     return 0;
@@ -21,8 +21,9 @@ int
 main(void)
 {
   int x;
-  std::cin >> x;
-  if (estePrim(x))
-    std::cout << "DA";
-  else std::cout << "NU";
+  cin >> x;
+  if (este_prim(x))
+    cout << "DA";
+  else
+    cout << "NU";
 }

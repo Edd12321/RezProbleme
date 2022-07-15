@@ -1,8 +1,13 @@
 <?php
   #Folosim config.php
 
-  session_start();
+  if (!isset($_SESSION)) { 
+    session_start(); 
+  } 
   include __DIR__ . '/config.php'; 
+  
+  ini_set('display_errors', 0);
+  error_reporting(E_ERROR | E_WARNING | E_PARSE); 
 ?>
 <html>
   <head>
@@ -22,7 +27,7 @@
       hr {
         width: 100%;
       }
-      #cutie {
+      #box {
         width: 100%;
       }
       textarea {
@@ -36,16 +41,16 @@
       echo "<h2>$title</h2><title>$title - RezProbleme</title>";
     ?>
     <!--Cutia de text in care se trimite codul-->
-    <div id="cutie">
+    <div id="box">
       <b>Cerinta</b>
-      <div id="cerinta">
+      <div id="box_text">
         <?php echo file_get_contents('cerinta.html'); ?>
       </div>
     </div>
     <br />
-    <div id="cutie">
+    <div id="box">
       <b>Solutii trimise</b>
-      <div id="cerinta">
+      <div id="box_text">
         <?php
           $solutii = scandir("sol");
           #Ordine numerica, nu lexicografica.
@@ -74,7 +79,7 @@
       </div>
     </div>
     <br />
-    <div id="cutie">
+    <div id="box">
       <!--Titlul "ferestrei"-->
       <b>Incarcare solutie</b>
       <form method="post" name="cod">
@@ -90,9 +95,9 @@
       </form>
     </div>
     <br />
-    <div id="cutie" style="width:fit-content;
+    <div id="box" style="width:fit-content;
                            min-width:100px">
-    <b>I/O Standard</b><div id="cerinta"><table border="1px solid">
+    <b>I/O Standard</b><div id="box_text"><table border="1px solid">
     <?php
       #Fallback C++
       $COMPILATOR = $_SERVER['cxx'];
@@ -196,6 +201,11 @@
         $var = file_get_contents($num.$EXTENSIE);
         $var = $COMM.' '.$corecte.'/'.$totale.', '.$_SESSION["nume"].PHP_EOL.$var;
         file_put_contents($num.$EXTENSIE, $var);
+
+        #Adaugam rezolvarea la lista de pe profil
+		if ($_SESSION["nume"] != "Anonim")
+			symlink("../../../comp/".basename(realpath(".."))."/sol/$num$EXTENSIE",
+                        "../../../profile/".$_SESSION["nume"]."/sol/$bpwd-$num$EXTENSIE");
 
         #Ne intoarcem de unde am plecat.
         chdir('..');

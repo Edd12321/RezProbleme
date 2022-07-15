@@ -5,7 +5,12 @@
   #| (_| (_) | | | |  _| | (_| |_| |_) | | | | |_) |
   # \___\___/|_| |_|_| |_|\__, (_) .__/|_| |_| .__/ 
   #                       |___/  |_|         |_|    
-  session_start();
+  if (!isset($_SESSION)) { 
+    session_start(); 
+  } 
+
+  ini_set('display_errors', 0);
+  error_reporting(E_ERROR | E_WARNING | E_PARSE); 
 
   $pwd = getcwd();
   $bpwd = basename($pwd);

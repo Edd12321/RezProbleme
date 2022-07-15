@@ -24,7 +24,7 @@
       }
     </style>
   </head>
-  <body><div id="cutie" class="c2">
+  <body><div id="box" class="c2">
     <h2>Creeaza o problema</h2>
     <div class="table">
       <form method="post">

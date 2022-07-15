@@ -1,6 +1,11 @@
 <?php
-  session_start();
+  if (!isset($_SESSION)) { 
+    session_start(); 
+  } 
   include 'config.php';
+
+  ini_set('display_errors', 0);
+  error_reporting(E_ERROR | E_WARNING | E_PARSE); 
 ?>
 <!DOCTYPE HTML>
 <html>

@@ -1,6 +1,11 @@
 <?php
-  session_start();
+  if (!isset($_SESSION)) { 
+    session_start(); 
+  } 
   include 'config.php';
+  
+  ini_set('display_errors', 0);
+  error_reporting(E_ERROR | E_WARNING | E_PARSE); 
 ?>
 
 <!DOCTYPE HTML>
@@ -85,21 +90,30 @@
         </a>
       </li>
       <span style="float:right;">
-        <li style="background-color:#222;">
-        <a href=<?php echo "\"$root2/index.php?q=au\"";?>
+		<li style="background-color:#222;">
+          <a href=<?php echo "\"$root2/index.php?q=au\"";?>
             <?php
               if ($_GET['q'] == 'au')
                 echo 'class="curent"';
             ?>
           >
           <?php
-            if ($_SESSION["nume"] == "Anonim") {
+            if ($_SESSION["nume"] == "Anonim")
               echo 'Autentificare';
-            } else {
+            else
               echo $_SESSION["nume"];
-            }
           ?>
-        </a>
+          </a>
+		</li>
+        <li>
+          <?php
+            if ($_SESSION["nume"] != "Anonim") {
+              echo "<a href=\"$root2/index.php?q=".$_SESSION["nume"]."\"";
+              if ($_GET['q'] == $_SESSION["nume"])
+                echo " class=\"curent\"";
+              echo ">Profil</a>";
+			}
+		  ?>
         </li>
       </span>
     </ul>
@@ -121,10 +135,13 @@
         case 'au':
           echo "\"$root2/auth.php\"";
           break;
-        default:
+        case null:
           echo "\"$root2/home.php\"";
+		  break;
+        default:
+          echo "\"$root2/profile/".$_GET['q'].'"';
           break;
-        }
+		}
       ?>
       scrolling="no" 
       id="Ifr"

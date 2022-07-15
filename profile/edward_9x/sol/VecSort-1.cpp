@@ -1,0 +1,1 @@
+../../../comp/VecSort/sol/1.cpp

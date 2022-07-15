@@ -1,9 +1,8 @@
-// 10/10, Anonim
+// 10/10, edward_9x
 #include <bits/stdc++.h>
-#pragma GCC optimize("Ofast")
 
 int
 main(void)
 {
-  std::cout << "Hello, world!";
+  std::cout<<"Hello, world!";
 }

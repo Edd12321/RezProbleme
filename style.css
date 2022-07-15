@@ -28,7 +28,7 @@ body, html {
   background-color: #007799;
   border: 1px solid blue;
 }
-#cutie {
+#box {
   background-color: #ecf0f1;
   margin: 10px solid;
   padding: 5px 0px 0 0px;
@@ -43,7 +43,7 @@ body, html {
 
   box-shadow: 2px 2px 2px #cccccc;
 }
-#cutie #cerinta {
+#box #box_text {
   font-size: 13px;
 
   border: 1px solid #cccccc;
@@ -51,12 +51,12 @@ body, html {
   padding: 5px;
   background-color: white;
 }
-#cutie {
+#box {
   width: fit-content;
   height: fit-content;
 }
 @media only screen and (max-device-width: 800px) {
-  #cutie {
+  #box {
     width: 100%;
   }
 }

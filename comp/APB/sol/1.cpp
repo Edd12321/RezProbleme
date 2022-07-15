@@ -1,11 +1,11 @@
 // 3/3, edward_9x
 #include <bits/stdc++.h>
-#pragma GCC optimize("Ofast")
+using namespace std;
 
 int
 main(void)
 {
   int a, b;
-  std::cin >> a >> b;
-  std::cout << a + b;
+  cin >> a >> b;
+  cout << a + b;
 }

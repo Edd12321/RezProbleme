@@ -1,0 +1,1 @@
+../../../comp/DiffNum/sol/1.cpp

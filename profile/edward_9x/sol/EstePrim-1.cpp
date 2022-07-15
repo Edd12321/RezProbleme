@@ -1,0 +1,1 @@
+../../../comp/EstePrim/sol/1.cpp

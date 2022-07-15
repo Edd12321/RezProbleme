@@ -1,13 +1,18 @@
 <?php
-  session_start();
+  if (!isset($_SESSION)) { 
+    session_start(); 
+  } 
   include 'config.php';
+  
+  ini_set('display_errors', 0);
+  error_reporting(E_ERROR | E_WARNING | E_PARSE); 
 ?>
 <html>
   <head>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div id="cutie" style="padding:3px;">
+    <div id="box" style="padding:3px;">
     <h2>Autentificare/Inregistrare</h2>
     <div class="table">
       <form method="post">
@@ -28,7 +33,13 @@
           <div class="td" id="pt2">
             <input required type="text" name="pass" autocomplete="off" style="-webkit-text-security: disc;">
           </div>
-          <button class="button" id="button2">OK</button> 
+          <?php
+            require "$root/verify.php";
+            echo $_SESSION["captcha"].'<br /><br /><br />';
+            
+            echo "<input required type=\"text\" placeholder=\"CAPTCHA\" name=\"captcha\" autocomplete=\"off\">";
+           ?>
+		  <button class="button" id="button2">OK</button> 
         </form>
       </div>
     </div>
@@ -38,10 +49,20 @@
         $pass = $_POST["pass"];
         $fisNume = "$root/pass/$nume.txt";
 
-        if (!file_exists($fisNume)) {
-          file_put_contents($fisNume, password_hash($pass, PASSWORD_DEFAULT));
-        } else if (password_verify($pass, file_get_contents($fisNume))) {
-          $_SESSION["nume"] = $nume;
+        if ($_SESSION["solve"] == $_POST["captcha"]) {
+          if (!file_exists($fisNume)) {
+            # Creeam profilul daca nu exista
+            mkdir("$root/profile/$nume");
+            mkdir("$root/profile/$nume/sol");
+			file_put_contents("$root/profile/$nume/bio.txt", "Hello, world!");
+            
+            # Facem un symbolic link
+            symlink("$root/profile.php", "$root/profile/$nume/index.php");
+  
+            file_put_contents($fisNume, password_hash($pass, PASSWORD_DEFAULT));
+          } else if (password_verify($pass, file_get_contents($fisNume))) {
+            $_SESSION["nume"] = $nume;
+          }
         }
       }
     ?>
