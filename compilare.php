@@ -88,7 +88,8 @@
           <option value="cpp">C++</option>
           <option value="c">C</option>
           <option value="d">D</option>
-          <option value="py">Python</option>
+		  <option value="py">Python</option>
+          <option value="bvm">BCCVM - Limbaj custom</option>
         </select>
         <br />
         <button type="submit" class="button">Trimite!</input>
@@ -131,9 +132,15 @@
           $EXTENSIE = '.d';
           break;
         case 'py':
-          $INTERP = "#!/usr/bin/python".PHP_EOL;
+          $INTERP = "python";
           $COMM = "#";
-          $EXTENSIE = '.py';
+		  $EXTENSIE = '.py';
+		  break;
+		case 'bvm':
+		  $INTERP = "../../../eso/bccvm";
+          $COMM = ';;';
+		  $EXTENSIE = '.bvm';
+		  break;
         }
 
         $fn = './' . $fn;
@@ -144,11 +151,8 @@
 
         #Compilam pe server... 
         if ($INTERP != "") {
-          $fn .= $EXTENSIE;
-          file_put_contents($fn, $INTERP.$_POST['solutie']);
-
-          #facem executabil
-          chmod($fn, 0777);
+          $fn = $fn.$EXTENSIE;
+          file_put_contents($fn, $_POST['solutie']);
         } else {
           file_put_contents($num.$EXTENSIE, $_POST['solutie']);
           shell_exec($COMPILATOR.' '.$num.$EXTENSIE);
@@ -176,11 +180,18 @@
                         htmlspecialchars($corect).
                      '</td>
                       <td>';
-              $timpInceput = floor(microtime(true) * 100);
-              #Executam dintr-un pipe, in "wrap" (pentru a evita executarea de cod arbitrar).
-              $rez = trim(shell_exec('echo "'.$continut.'"|'.$root.'/wrap '.$fn));
-              $timpFinal = floor(microtime(true) * 100) - $timpInceput;
-              echo htmlspecialchars($rez).
+			  $timpInceput = floor(microtime(true) * 100);
+
+			  /* comanda care va fi filtrata */
+              $command = $fn;
+			  if ($INTERP != "")
+				  $command = $INTERP.' '.$fn;
+
+			  #Executam dintr-un pipe, in "wrap" (pentru a evita executarea de cod arbitrar).
+              $rez = trim(shell_exec('echo "'.$continut.'"|'.$root.'/wrap '.$command));
+			  $timpFinal = floor(microtime(true) * 100) - $timpInceput;
+			  
+			  echo htmlspecialchars($rez).
                   '</td>
                    <td>';
               ++$totale;

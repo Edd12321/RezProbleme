@@ -10,6 +10,11 @@ Platforma interactiva & modulara pentru probleme de informatica.
  - libseccomp/seccomp-bpf
  - POSIX sh, pentru compilare.php;
 
+# BCCVM - Un limbaj ezoteric de programare
+BCCVM este un limbaj de programare ezoteric in care programele sunt stocate pe un plan bidimensional. Limbajul a fost implementat de la zero. Este inspirat din Befunge98, ><> si Forth. Utilizatorii pot incarca solutii in acest limbaj ca si cu orice alt limbaj (ex C/C++, D).
+
+Detalii: <https://github.com/Edd12321/bccvm>
+
 # Configuratie
 `gcc src/wrap.c -lseccomp -o wrap`
 
