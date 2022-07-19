@@ -1,17 +1,19 @@
 # bccvm
-bccvm is a <del>procedural</del> two-dimensional stack-based esoteric programming language, inspired by Befunge98, ><> and Forth. All programs written in bccvm are stored on a 2D plane/grid, and they are navigated through using arrow operators.
+bccvm este un limbaj ezoteric de programare, inspirat de catre Befunge98, ><> si Forth. Toate programele scrise in bccvm sunt stocate pe un "plan 2D", instructiunile manipuland stiva/schimband pozitia instruction pointer-ului.
 
-For instance, this is a valid bccvm program, that loops ad infinitum:
+De exemplu, acesta poate fi considerat un program valid BCCVM (loop infinit):
 ```
 #!/usr/bin/bccvm
 >v
 ^<
 ```
 
-...same for this, program that takes a number as input and prints its square to the screen:
+...si acesta poate fi considerat un program valid, care calculeaza patratul unui numar citit de la tastatura.
 ```
 #!/usr/bin/bccvm
 vveeeeeeeeeeeeeeeeeeeeeeeee"Please enter an integer: "<
 >                                                     ^
  >&:*$@
 ```
+
+Puteti gasi multe alte exemple in folder-ul "examples"...
