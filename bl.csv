@@ -1,4 +1,15 @@
         , 
+20/06/22, Actualizare roadmap site
+19/06/22, Diverse imbunatatiri<br />Traducere README.md
+17/06/22, Limbaj ezoteric nou<br />Bugfix-uri
+15/06/22, v2.0 redux (profil&#44; captcha&#44; etc.)<br />Implementare identicon pentru conturi
+09/06/22, Adaugare favicon.ico
+05/06/22, Interfata noua de mobil+bugfix
+04/06/22, Imbunatatire modularitate
+28/05/22, Adaugare limbaje interpretate si conturi
+19/05/22, Adaugare .gitignore
+14/05/22, Documentatie (din nou)
+11/05/22, Documentatie
 10/05/22, Adaugare sistem username<br />Bugfix<br />Imbunatatiri securitate<br />Efect nou pagina
 09/05/22, Adaugare sistem propunere probleme<br />Redesign interfata<br />Inscriere in concurs<br />
 08/05/22, Adaugare problema <i>EstePrim</i><br />Implementare sandbox <code>seccomp(2)</code>

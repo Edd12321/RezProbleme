@@ -15,10 +15,18 @@
   $pwd = getcwd();
   $bpwd = basename($pwd);
   
-  $root = realpath(__DIR__);
+  $root     = realpath(__DIR__);
+  $doc_root = $_SERVER["DOCUMENT_ROOT"];
 
   #SCHIMBA ASTA DACA INDEX.PHP NU SE AFLA IN FOLDERUL RADACINA !!
-  $root2 = "";
+  $root2 = "/web/RezProbleme";
+
+  if (!file_exists($doc_root.'/'.$root2)) {
+    $root2 = "/RezProbleme";
+    if (!file_exists($doc_root.'/'.$root2)) {
+      $root2 = '';
+    }
+  }
 
   #Compilatoare
   $_SERVER['cc'] = 'gcc';
