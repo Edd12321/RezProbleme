@@ -2,7 +2,8 @@
   if (!isset($_SESSION)) { 
     session_start(); 
   } 
-  include 'config.php';
+  include "config.php";
+  include "navbar.php";
   
   ini_set('display_errors', 0);
   error_reporting(E_ERROR | E_WARNING | E_PARSE); 
@@ -11,7 +12,10 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style.css">
+	<style>
+      form { height: fit-content; margin-bottom: 0;}
+	</style>
   </head>
   <body>
     <h2>Lista de probleme</h2>
@@ -21,13 +25,11 @@
       foreach($pb as $problema) {
         if ($problema[0] != '.') {
           #Afisam "fereastra" si cerinta inauntrul ei.
-          echo '<div id="box">
-                <b>' .
-                  basename($problema) .
-               '</b>
-                <div id="box_text">' . 
+          echo '<div id="box">';
+          echo '<b>'.basename($problema).'</b>';
+          echo '<div id="box_text">' . 
                   file_get_contents('comp/' . $problema . '/cerinta.html') .
-                 '<form method="post" action="' . 'comp/' . $problema . '/compilare.php">
+                 '<form method="post" action="comp/'.$problema.'">
                     <button type="submit" class="button" name="rez">Rezolva!</button>
                   </form>
                 </div></div><br />';

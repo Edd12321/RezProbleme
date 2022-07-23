@@ -1,6 +1,7 @@
 <?php
   session_start();
-  include 'config.php';
+  include "config.php";
+  include "navbar.php";
 ?>
 
 <!DOCTYPE HTML>
@@ -122,7 +123,7 @@
     </div></div>
     <?php
         if (isset($_POST)) {
-          $unde = $root.'/comp/'.htmlspecialchars($_POST["titlu"]);
+          $unde = $root.'/comp/'.htmlspecialchars(@$_POST["titlu"]);
           if (is_dir($unde))
             goto anulare;
           mkdir($unde);
@@ -145,7 +146,7 @@
           file_put_contents("$unde/cerinta.html", @$cer);
           
           #Facem pagina de compilare accesibila.
-          symlink('../../compilare.php', "$unde/compilare.php");
+          symlink('../../compilare.php', "$unde/index.php");
 
           mkdir("$unde/sol/date");
           mkdir("$unde/sol/corect");
@@ -153,7 +154,8 @@
           file_put_contents("$unde/sol/num.txt", '0');
 
           for ($i = 1; $i <= 10; ++$i) {
-            if (isset($_POST["ex$i"]) && isset($_POST["rp$i"])) {
+            if (isset($_POST["ex$i"]) && $_POST["ex$i"] != ""
+            &&  isset($_POST["rp$i"]) && $_POST["rp$i"] != "") {
               file_put_contents("$unde/sol/date/$i.txt", $_POST["ex$i"]);
               file_put_contents("$unde/sol/corect/$i.txt", $_POST["rp$i"]);
             }

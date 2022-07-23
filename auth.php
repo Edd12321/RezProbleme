@@ -1,9 +1,14 @@
 <?php
-  if (!isset($_SESSION)) { 
-    session_start(); 
-  } 
-  include 'config.php';
-  
+  if (!isset($_SESSION))
+	  session_start();
+  include "config.php";
+  include "navbar.php";
+
+  #####################################################################################
+  ### SCHIMBA VARIABILA PENTRU A STOCA PAROLELE ALTUNDEVA DACA NU MERGE .htaccess ! ###
+  #####################################################################################
+  $ROOTPASS = "$root/pass";
+
   ini_set('display_errors', 0);
   error_reporting(E_ERROR | E_WARNING | E_PARSE); 
 ?>
@@ -45,19 +50,19 @@
     </div>
     <?php
       if (isset($_POST)) {
-        $nume = $_POST["name"];
-        $pass = $_POST["pass"];
-        $fisNume = "$root/pass/$nume.txt";
+        $nume = @$_POST["name"];
+        $pass = @$_POST["pass"];
+        $fisNume = "$ROOTPASS/$nume.txt";
 
-        if ($_SESSION["solve"] == $_POST["captcha"]) {
+        if ($_SESSION["solve"] == @$_POST["captcha"]) {
           if (!file_exists($fisNume)) {
             # Creeam profilul daca nu exista
-            mkdir("$root/profile/$nume");
-            mkdir("$root/profile/$nume/sol");
-			file_put_contents("$root/profile/$nume/bio.txt", "Hello, world!");
+            mkdir("profile/$nume");
+            mkdir("profile/$nume/sol");
+			file_put_contents("profile/$nume/bio.txt", "Hello, world!");
             
             # Facem un symbolic link
-            symlink("$root/profile.php", "$root/profile/$nume/index.php");
+            symlink("../../profile.php", "profile/$nume/index.php");
   
             file_put_contents($fisNume, password_hash($pass, PASSWORD_DEFAULT));
           } else if (password_verify($pass, file_get_contents($fisNume))) {

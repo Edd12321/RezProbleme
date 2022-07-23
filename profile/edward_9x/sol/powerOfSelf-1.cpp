@@ -1,0 +1,1 @@
+../../../comp/powerOfSelf/sol/1.cpp

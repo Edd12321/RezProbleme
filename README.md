@@ -5,7 +5,7 @@ Platforma interactiva & modulara pentru probleme de informatica.
  - Un server web cu suport PHP (ex. Apache);
  - Colectia de compilatoare GNU GCC;
  - Diverse compilatoare/interpreter-uri pentru solutii (ex. DMD, Python, etc.)
- - Un browser cu suport Javascript;
+ - Un browser (NU mai trebuie suport Javascript neaparat!);
  - Nucleul Linux, pentru seccomp(2);
  - libseccomp/seccomp-bpf
  - POSIX sh, pentru compilare.php;

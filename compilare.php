@@ -4,7 +4,8 @@
   if (!isset($_SESSION)) { 
     session_start(); 
   } 
-  include __DIR__ . '/config.php'; 
+  include __DIR__."/config.php";
+  include __DIR__."/navbar.php"; 
   
   ini_set('display_errors', 0);
   error_reporting(E_ERROR | E_WARNING | E_PARSE); 
