@@ -13,6 +13,8 @@ $script=real_path($_SERVER["SCRIPT_FILENAME"]);
 $script=basename($script,".php");
 ?>
 
+<html>
+<head>
 <style>
   #pagina {
         color: #fff;
@@ -31,6 +33,9 @@ $script=basename($script,".php");
     
   html, body {
     margin: 0;
+  }
+
+  #bdiv {
     background-color: #ddd;
   }
 
@@ -55,6 +60,7 @@ $script=basename($script,".php");
 	}
   }
 </style>
+<link rel="stylesheet" href=<?="$root2/dark.css"?> />
 
 <!--Modificam afisarea pt mobil-->
 <meta name="viewport" content="width=device,width,
@@ -67,7 +73,18 @@ $script=basename($script,".php");
 <link rel="icon" type="x-image/icon" href=<?="$root2/favicon.ico"?> />
 <title>RezProbleme</title>
 
+<link rel="stylesheet" href=<?="$root2/dark.css" ?> />
 <link rel="stylesheet" href=<?="$root2/style.css"?> />
+
+</head>
+<body style="position:relative">
+<input autocomplete="off" type="checkbox" style="top:0 !important;
+                                                 right:0;
+                                                 z-index:999999999;
+                                                 height: 10;
+                                                 position:fixed;"/>
+
+<div id="bdiv">
 <ul>
   <li>
     <a href=<?="$root2/index.php"?>
@@ -127,7 +144,7 @@ $script=basename($script,".php");
         if ($_SESSION["nume"] != "Anonim")
           echo "<a href=\"$root2/profile/".$_SESSION["nume"]."\">Profil</a>";
        ?>
-    </li>
+	</li>
   </span>
 </ul>
 

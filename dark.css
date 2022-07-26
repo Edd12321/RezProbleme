@@ -1,0 +1,55 @@
+[type="checkbox"]:checked + #bdiv {
+	background-color: #444;
+}
+
+[type="checkbox"]:checked + #bdiv .wrapper {
+	background-color: #333;
+	color: #fff;
+
+	box-shadow: 2px 2px 2px #111;
+	transition: background-color 0.2s ease;
+}
+
+[type="checkbox"]:checked + #bdiv .wrapper #box {
+	background-color: #222;
+	color: #999;
+	box-shadow: 2px 2px 2px #111;
+	border: 1px solid black;
+
+	transition: background-color 0.2 ease;
+}
+
+[type="checkbox"]:checked + #bdiv .wrapper #box #box_text {
+	background-color:#222;
+	color: #ddd;
+
+	border: 1px solid black;
+}
+
+[type="checkbox"]:checked + #bdiv .wrapper #box #box_text > pre, 
+[type="checkbox"]:checked + #bdiv .wrapper #box #box_text > code,
+[type="checkbox"]:checked + #bdiv .wrapper #box .table form .tr .td #grd #xyz > pre,
+[type="checkbox"]:checked + #bdiv .wrapper #box .table form .tr .td #grd #xyz > code {
+	color: #116688;
+	background-color: #111;
+}
+
+[type="checkbox"]:checked + #bdiv .wrapper table {
+	color: white;
+}
+
+[type="checkbox"]:checked + #bdiv .wrapper table th {
+	background-color: #333;
+	border: 1px solid #444;
+}
+
+[type="checkbox"]:checked + #bdiv .wrapper table td {
+	border: 1px solid #444;
+}
+
+[type="checkbox"]:checked + #bdiv .wrapper textarea,
+[type="checkbox"]:checked + #bdiv .wrapper input[type="text"]{
+	color: #fff;
+	background-color: #333;
+	border-bottom: 1px solid #000;
+}

@@ -1,7 +1,7 @@
 body, html {
-  font-family: arial;
-  font-size: 13px;
-  background-color: rgb(247, 249, 252);
+    font-family: arial;
+    font-size: 13px;
+    background-color: rgb(247, 249, 252);
 }
 #grd {
   display: inline-grid;
@@ -90,6 +90,7 @@ ul {
   top: 0px;
 
   font-size: 15px;
+  box-shadow: -5px 1px 11px #222;
 }
 
 li {

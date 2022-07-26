@@ -18,7 +18,7 @@
   <head>
     <link rel="stylesheet" href="<?=$root2?>/style.css">
     <style>
-      span {
+	  span {
         display:flex;
       }
       span div {
@@ -44,6 +44,7 @@
   </head>
   <body>
 
+    <!--Incepem afisarea-->
     <span>
       <div id="pt1">
         <center>
@@ -84,8 +85,7 @@
           <b>Grad: <?=dp_rank($nr_pb)?></b>
             <hr />
         </div>
-      </div>
-      <div>
+	  </div>
       <div id="box" style="width:65vw;">
          <b>Solutii</b>
          <div id="box_text" style="height:85%";>
@@ -140,7 +140,7 @@
            ?>
           </div>
         </div>
-      </div>
+	  </div>
     </span>
 
   </body>

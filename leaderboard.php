@@ -60,7 +60,7 @@
      ## Afisam clasamentul ##
      ########################
     echo "<td>";
-    $rank = "black";
+    $rank = "blue";
 
     # Premiantii+Mentiuni
     if ($k <= 3) {
