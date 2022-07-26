@@ -16,7 +16,7 @@ $script=basename($script,".php");
 <style>
   #pagina {
         color: #fff;
-    background: url('<?php $v = array_slice(scandir(__DIR__."/res"), 2); echo "$root2/res/".$v[array_rand($v)];?>');
+        background: url('<?php $v = array_slice(scandir(__DIR__."/res"), 2); echo "$root2/res/".$v[array_rand($v)];?>');
         height: 300px;
         background-attachment: fixed;
         position: relative;
@@ -49,7 +49,10 @@ $script=basename($script,".php");
   @media only screen and (max-device-width:800px) {
     .wrapper {
       width: 98%;
-    }
+	}
+	ul li {
+	  font-size: 13px;
+	}
   }
 </style>
 
