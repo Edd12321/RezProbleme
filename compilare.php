@@ -89,7 +89,7 @@
           <option value="cpp">C++</option>
           <option value="c">C</option>
           <option value="d">D</option>
-		  <option value="py">Python</option>
+      <option value="py">Python</option>
           <option value="bvm">BCCVM - Limbaj custom</option>
         </select>
         <br />
@@ -135,13 +135,13 @@
         case 'py':
           $INTERP = "python";
           $COMM = "#";
-		  $EXTENSIE = '.py';
-		  break;
-		case 'bvm':
-		  $INTERP = "../../../eso/bccvm";
+      $EXTENSIE = '.py';
+      break;
+    case 'bvm':
+      $INTERP = "../../../eso/bccvm";
           $COMM = ';;';
-		  $EXTENSIE = '.bvm';
-		  break;
+      $EXTENSIE = '.bvm';
+      break;
         }
 
         $fn = './' . $fn;
@@ -181,20 +181,18 @@
                         htmlspecialchars($corect).
                      '</td>
                       <td>';
-			  $timpInceput = floor(microtime(true) * 100);
+              $timpInceput = floor(microtime(true) * 100);
 
-			  /* comanda care va fi filtrata */
+              /* comanda care va fi filtrata */
               $command = $fn;
-			  if ($INTERP != "")
-				  $command = $INTERP.' '.$fn;
-
-			  #Executam dintr-un pipe, in "wrap" (pentru a evita executarea de cod arbitrar).
+              if ($INTERP != "")
+                $command = $INTERP.' '.$fn;
+              
+              #Executam dintr-un pipe, in "wrap" (pentru a evita executarea de cod arbitrar).
               $rez = trim(shell_exec('echo "'.$continut.'"|'.$root.'/wrap '.$command));
-			  $timpFinal = floor(microtime(true) * 100) - $timpInceput;
-			  
-			  echo htmlspecialchars($rez).
-                  '</td>
-                   <td>';
+              $timpFinal = floor(microtime(true) * 100) - $timpInceput;
+                
+              echo htmlspecialchars($rez).'</td><td>';
               ++$totale;
               if (!strcmp($rez, $corect) && $timpFinal <= 107) {
                 ++$corecte;
@@ -215,9 +213,9 @@
         file_put_contents($num.$EXTENSIE, $var);
 
         #Adaugam rezolvarea la lista de pe profil
-		if ($_SESSION["nume"] != "Anonim")
-			symlink("../../../comp/".basename(realpath(".."))."/sol/$num$EXTENSIE",
-                        "../../../profile/".$_SESSION["nume"]."/sol/$bpwd-$num$EXTENSIE");
+        if ($_SESSION["nume"] != "Anonim")
+          symlink("../../../comp/".basename(realpath(".."))."/sol/$num$EXTENSIE",
+                "../../../profile/".$_SESSION["nume"]."/sol/$bpwd-$num$EXTENSIE");
 
         #Ne intoarcem de unde am plecat.
         chdir('..');
