@@ -10,18 +10,7 @@
   error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
   $nr_pb = count(scandir("sol"))-2;
-
-  if ($nr_pb < 50) {
-    $rank = "<font color=\"green\">Incepator</font>";
-  } else if ($nr_pb < 100) {
-	$rank = "<font color=\"yellow\">Rezolvitor</font>";
-  } else if ($nr_pb < 150) {
-	$rank = "<font color=\"orange\">Bun</font>";
-  } else if ($nr_pb < 200) {
-    $rank = "<font color=\"red\">Informatician</font>";
-  } else if ($nr_pb < 250) {
-  	$rank = "<font color=\"blue\">Maestru</font>";
-  }
+  require "../../func.php";
 ?>
 
 <!DOCTYPE HTML>
@@ -92,7 +81,7 @@
             <hr />
           <b>Data crearii contului: <?=date("F d, Y @H:i:s.",filemtime('.'))?></b>
             <hr />
-          <b>Grad: <?=$rank?></b>
+          <b>Grad: <?=dp_rank($nr_pb)?></b>
             <hr />
         </div>
       </div>

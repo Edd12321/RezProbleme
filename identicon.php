@@ -22,7 +22,7 @@ get_identicon($text)
 		for ($j = 1; $j <= 5; ++$j)
 			(int)$hash[$i*$j] & 1 ? $mat[$i][$j] = '██' : $mat[$i][$j] = '▒▒';
 
-	echo "<div style=\"color:$rgb;\">";
+	echo "<div class=\"iden\" style=\"color:$rgb;\">";
 	for ($i = 1; $i <= 10; ++$i) {
 		for ($j = 1; $j <= 5; ++$j)
 			echo $mat[$i][$j];
