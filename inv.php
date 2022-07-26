@@ -27,7 +27,10 @@
   </head>
   <body><div id="box" class="c2">
     <h2>Creeaza o problema</h2>
-    <div class="table">
+
+	<!-----CLASAMENT BEGIN----->
+	
+	<div class="table">
       <form method="post">
         <div class="tr">
           <div class="td">
@@ -120,7 +123,10 @@
         </div>
         <button type="submit" class="button" id="button2">Trimite!</button>
       </form>
-    </div></div>
+	</div></div>
+
+	<!-----CLASAMENT END----->
+
     <?php
         if (isset($_POST)) {
           $unde = $root.'/comp/'.htmlspecialchars(@$_POST["titlu"]);

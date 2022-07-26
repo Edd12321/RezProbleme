@@ -1,3 +1,6 @@
+ /************/
+ /** PAGINA **/
+ /************/
 [type="checkbox"]:checked + #bdiv {
 	background-color: #444;
 }
@@ -10,6 +13,9 @@
 	transition: background-color 0.2s ease;
 }
 
+ /**********************/
+ /** CUTII / FERESTRE **/
+ /**********************/
 [type="checkbox"]:checked + #bdiv .wrapper #box {
 	background-color: #222;
 	color: #999;
@@ -26,6 +32,7 @@
 	border: 1px solid black;
 }
 
+/** ->(monospace) **/
 [type="checkbox"]:checked + #bdiv .wrapper #box #box_text > pre, 
 [type="checkbox"]:checked + #bdiv .wrapper #box #box_text > code,
 [type="checkbox"]:checked + #bdiv .wrapper #box .table form .tr .td #grd #xyz > pre,
@@ -34,6 +41,9 @@
 	background-color: #111;
 }
 
+ /***************************/
+ /** CLASAMENT UTILIZATORI **/
+ /***************************/
 [type="checkbox"]:checked + #bdiv .wrapper table {
 	color: white;
 }
@@ -47,9 +57,21 @@
 	border: 1px solid #444;
 }
 
+ /*******************/
+ /** INPUT DE TEXT **/
+ /*******************/
 [type="checkbox"]:checked + #bdiv .wrapper textarea,
 [type="checkbox"]:checked + #bdiv .wrapper input[type="text"]{
 	color: #fff;
 	background-color: #333;
 	border-bottom: 1px solid #000;
+}
+
+ /*********************/
+ /** SELECTIE LIMBAJ **/
+ /*********************/
+[type="checkbox"]:checked + #bdiv .wrapper * select option,
+[type="checkbox"]:checked + #bdiv .wrapper * select {
+	background-color: black;
+	           color: white;
 }
