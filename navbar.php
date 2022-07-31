@@ -78,11 +78,14 @@ $script=basename($script,".php");
 
 </head>
 <body style="position:relative">
-<input autocomplete="off" type="checkbox" style="top:0 !important;
-                                                 right:0;
-                                                 z-index:999999999;
-                                                 height: 10;
-                                                 position:fixed;"/>
+
+<!--Merge si fara JS, aici este doar un bonus!-->
+<script src="<?=$root2?>/extra.js"></script>
+<input autocomplete="off" type="checkbox" id="cbox1" onclick="kmode();" style="top:0 !important;
+                                                                               right:0;
+                                                                               z-index:999999999;
+                                                                               height: 10;
+                                                                               position:fixed;"/>
 
 <div id="bdiv">
 <ul>

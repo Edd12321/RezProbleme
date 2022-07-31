@@ -15,6 +15,13 @@ BCCVM este un limbaj de programare ezoteric in care programele sunt stocate pe u
 
 Detalii: <https://github.com/Edd12321/bccvm>
 
+# Capturi de ecran
+![ecran de pornire](img/rezpb-home.png)
+![rezolvare corecta problema](img/rezpb-solve.png)
+![trimitere cerinta pb](img/rezpb-compunere.png)
+![clasament](img/rezpb-clasament.png)
+![profil](img/rezpb-profile.png)
+
 # Configuratie
 `gcc src/wrap.c -lseccomp -o wrap`
 
